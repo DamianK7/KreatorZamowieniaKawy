@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wybierz kawę"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:background="back"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+
+        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            >
+
+            <RadioGroup
+                android:id="@+id/meal_radiogroup"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_gravity="center_vertical"
+                >
+                <RadioButton
+                    android:id="@+id/kebs_radiobatton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Espresso"
+                    />
+                <RadioButton
+                    android:id="@+id/pizza_radiobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cappuccino"
+                    />
+                <RadioButton
+                    android:id="@+id/pizza_radiobatton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Latte"
+                    />
+
+            </RadioGroup>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="200dp"
+                android:contentDescription="old Kotlin"
+                android:scaleType="centerCrop"
+                android:src="@drawable/capuccino"
+                />
+
+        </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wybierz dodatki:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="back"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mleko"
+            android:padding="10dp"
+            >
+        </CheckBox>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cukier"
+            android:padding="10dp"
+            >
+        </CheckBox>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wybierz ilość kaw:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="back"
+        android:padding="10dp"
+        />
+
+
+        </LinearLayout>
