@@ -8,18 +8,25 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#BE9877"
+    >
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Wybierz kawę"
         android:textSize="50sp"
         android:textStyle="bold"
-        android:background="back"
         android:padding="10dp"
         android:layout_margin="10dp"
-        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:textAlignment="center"
 
-        />
+    />
+</LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,7 +36,6 @@
             >
 
             <RadioGroup
-                android:id="@+id/meal_radiogroup"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -37,19 +43,16 @@
                 android:layout_gravity="center_vertical"
                 >
                 <RadioButton
-                    android:id="@+id/kebs_radiobatton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Espresso"
                     />
                 <RadioButton
-                    android:id="@+id/pizza_radiobutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cappuccino"
                     />
                 <RadioButton
-                    android:id="@+id/pizza_radiobatton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Latte"
@@ -61,24 +64,29 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="200dp"
-                android:contentDescription="old Kotlin"
                 android:scaleType="centerCrop"
                 android:src="@drawable/capuccino"
                 />
 
         </LinearLayout>
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#BE9877"
+    >
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Wybierz dodatki:"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="back"
         android:padding="10dp"
-        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         />
+
+</LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -90,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mleko"
-            android:padding="10dp"
+            android:layout_margin="10dp"
             >
         </CheckBox>
 
@@ -98,21 +106,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cukier"
-            android:padding="10dp"
+            android:layout_margin="10dp"
             >
         </CheckBox>
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#BE9877"
+        >
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Wybierz ilość kaw:"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="back"
-        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         />
 
+    </LinearLayout>
 
-        </LinearLayout>
+    <SeekBar
+        android:padding="10dp"
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="10"
+        android:progress="1"
+        android:thumbTint="#123abc"
+        android:layout_margin="10dp"
+        android:tooltipText="123"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/myTextView"
+        android:textAlignment="center"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Złóż zamówienie"
+        android:layout_margin="10dp"
+        android:backgroundTint="#BE9877"
+        >
+    </Button>
+
+</LinearLayout>
