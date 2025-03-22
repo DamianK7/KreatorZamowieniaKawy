@@ -2,12 +2,8 @@ package com.example.kreatorzamowieniakawy
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.SeekBar
-import android.widget.TextView
-import android.widget.Toast
+import android.util.Log
+import android.widget.*
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -26,8 +22,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         val imageView = findViewById<ImageView>(R.id.imageViewKawy)
-
         val radioGroup = findViewById<RadioGroup>(R.id.rodzajKawyRG)
+        val seekBar = findViewById<SeekBar>(R.id.seekBar)
+        val myTextView = findViewById<TextView>(R.id.myTextView)
+        val zamowButton = findViewById<Button>(R.id.zamowButton)
+        val checkMleko = findViewById<CheckBox>(R.id.checkMleko)
+        val checkCukier = findViewById<CheckBox>(R.id.checkCukier)
+
+        myTextView.text = "Ilość kaw: ${seekBar.progress}"
 
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
             val imageResource = when (checkedId) {
@@ -39,11 +41,6 @@ class MainActivity : AppCompatActivity() {
             imageView.setImageResource(imageResource)
         }
 
-        val seekBar = findViewById<SeekBar>(R.id.seekBar)
-        val myTextView = findViewById<TextView>(R.id.myTextView)
-
-        myTextView.text = "Ilość kaw: ${seekBar.progress}"
-
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 myTextView.text = "Ilość kaw: $progress"
@@ -51,6 +48,29 @@ class MainActivity : AppCompatActivity() {
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
             override fun onStopTrackingTouch(seekBar: SeekBar) {}
         })
-    }
 
+
+        zamowButton.setOnClickListener {
+            val selectedCoffeeId = radioGroup.checkedRadioButtonId
+            val selectedCoffee = when (selectedCoffeeId) {
+                R.id.espresso -> "Espresso"
+                R.id.cappucino -> "Cappuccino"
+                R.id.latte -> "Latte"
+                else -> "Nie wybrano kawy"
+            }
+
+
+            val dodatki = mutableListOf<String>()
+            if (checkMleko.isChecked) dodatki.add("Mleko")
+            if (checkCukier.isChecked) dodatki.add("Cukier")
+
+            val dodatkiText = if (dodatki.isNotEmpty()) dodatki.joinToString(", ") else "Brak dodatków"
+
+            val iloscKawy = seekBar.progress
+
+            val zamowienie = "Zamówienie:\nRodzaj kawy: $selectedCoffee\nDodatki: $dodatkiText\nIlość kaw: $iloscKawy"
+
+            Log.d("Zamówienie", zamowienie)
+        }
+    }
 }

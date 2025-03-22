@@ -100,6 +100,7 @@
         >
 
         <CheckBox
+            android:id="@+id/checkMleko"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mleko"
@@ -108,6 +109,7 @@
         </CheckBox>
 
         <CheckBox
+            android:id="@+id/checkCukier"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cukier"
@@ -136,11 +138,12 @@
     </LinearLayout>
 
     <SeekBar
-        android:padding="10dp"
         android:id="@+id/seekBar"
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:max="10"
+        android:min="1"
         android:progress="1"
         android:thumbTint="#123abc"
         android:layout_margin="10dp"
@@ -155,6 +158,7 @@
         />
 
     <Button
+        android:id="@+id/zamowButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Złóż zamówienie"
