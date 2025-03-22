@@ -1,6 +1,8 @@
 package com.example.kreatorzamowieniakawy
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.SeekBar
@@ -12,6 +14,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -20,23 +23,33 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
 
+        val imageView = findViewById<ImageView>(R.id.imageViewKawy)
 
+        val radioGroup = findViewById<RadioGroup>(R.id.rodzajKawyRG)
+
+        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            val imageResource = when (checkedId) {
+                R.id.espresso -> R.drawable.espresso
+                R.id.cappucino -> R.drawable.capuccino
+                R.id.latte -> R.drawable.latte
+                else -> R.drawable.capuccino
+            }
+            imageView.setImageResource(imageResource)
         }
 
         val seekBar = findViewById<SeekBar>(R.id.seekBar)
         val myTextView = findViewById<TextView>(R.id.myTextView)
 
+        myTextView.text = "Ilość kaw: ${seekBar.progress}"
+
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 myTextView.text = "Ilość kaw: $progress"
             }
-            override fun onStartTrackingTouch(seekBar: SeekBar) {
-                Toast.makeText(this@MainActivity, "Zacząłeś przesuwać suwak", Toast.LENGTH_SHORT).show()
-            }
-            override fun onStopTrackingTouch(seekBar: SeekBar) {
-                Toast.makeText(this@MainActivity, "Zakończyłeś przesuwanie suwaka", Toast.LENGTH_SHORT).show()
-            }
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar) {}
         })
     }
 

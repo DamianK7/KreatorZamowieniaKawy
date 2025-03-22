@@ -36,6 +36,7 @@
             >
 
             <RadioGroup
+                android:id="@+id/rodzajKawyRG"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -43,16 +44,19 @@
                 android:layout_gravity="center_vertical"
                 >
                 <RadioButton
+                    android:id="@+id/espresso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Espresso"
                     />
                 <RadioButton
+                    android:id="@+id/cappucino"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cappuccino"
                     />
                 <RadioButton
+                    android:id="@+id/latte"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Latte"
@@ -61,6 +65,7 @@
             </RadioGroup>
 
             <ImageView
+                android:id="@+id/imageViewKawy"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="200dp"
@@ -143,9 +148,9 @@
         />
 
     <TextView
+        android:id="@+id/myTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/myTextView"
         android:textAlignment="center"
         />
 
